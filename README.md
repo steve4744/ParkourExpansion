@@ -1,39 +1,43 @@
 # Parkour Expansion
 
-This is a placeholder expansion pack for A5H73Y's Parkour plugin and is used in conjunction with PlaceholderAPI.
+This is a Minecraft placeholder expansion pack for A5H73Y's Parkour plugin and is used in conjunction with PlaceholderAPI.
 
 Required versions for Parkour Expansion 1.0.8:<br>
-[Parkour 4.8+](https://www.spigotmc.org/resources/parkour.23685/ "A5H73Y's Parkour")<br>
-[PlaceholderAPI 2.9.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI)
+[Parkour 4.8+](https://dev.bukkit.org/projects/parkour?gameCategorySlug=bukkit-plugins&projectID=42615 "A5H73Y's Parkour")<br>
+[PlaceholderAPI 2.9.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI")
 
-To use this expansion, drop the Expansion-Parkour.jar into your plugins/placeholderapi/expansions folder and run "/papi reload".
+##Download
 
-The latest version can be downloaded from Spigot [here](https://www.spigotmc.org/resources/parkour-expansion.41874/ "Parkour Expansion"), or <br>
-can now also be downloaded directly in-game using command "/papi ecloud download Parkour".
+The latest version can be [downloaded from Spigot](https://www.spigotmc.org/resources/parkour-expansion.41874/ "Parkour Expansion"), or <br>
+can now also be downloaded directly in-game using command _/papi ecloud download Parkour_.
 
-Current list of Parkour placeholders:
+##Installation
+
+To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeholderapi/expansions_ folder and run _/papi reload_.
+
+##Current list of Parkour placeholders
 
 | Placeholder                           | Description                                      |
 |---------------------------------------|--------------------------------------------------|
-|%parkour_last_played% | course last played by player |
-|%parkour_last_completed% | course last completed by player |
-|%parkour_level% | player's Parkour level |
-|%parkour_rank% | player's Parkour rank |
-|%parkour_parkoins% | number of Parkoins player has won |
-|%parkour_course_record_<course>% | best time set for course |
-|%parkour_personal_best_<course>% | player's personal best time for course |
-|%parkour_leader_<course>% | player with best time for course |
-|%parkour_current_course% | course currently being played |
-|%parkour_current_course_record% | best time for current course |
-|%parkour_current_personal_best% | player's best time on current course |
-|%parkour_current_course_leader% | player with best time on current course |
-|%parkour_current_course_timer% | elapsed time on current course (Parkour v5.0+) |
-|%parkour_course_count% | number of parkour courses on server |
-|%parkour_player_count% | number of players currently playing parkour |
-|%parkour_version% | version of Parkour currently on server |
-|%parkour_topten_<course>_<position>% | leaderboard position in top ten (position=1-10) |
-|%parkour_toptenxcc_<course>_<position>% | top ten positions with colour codes |
+|%parkour\_last\_played% | course last played by player |
+|%parkour\_last\_completed% | course last completed by player |
+|%parkour\_level% | player's Parkour level |
+|%parkour\_rank% | player's Parkour rank |
+|%parkour\_parkoins% | number of Parkoins player has won |
+|%parkour\_course\_record\_<course>% | best time set for course |
+|%parkour\_personal\_best\_<course>% | player's personal best time for course |
+|%parkour\_leader\_<course>% | player with best time for course |
+|%parkour\_current\_course% | course currently being played |
+|%parkour\_current\_course\_record% | best time for current course |
+|%parkour\_current\_personal\_best% | player's best time on current course |
+|%parkour\_current\_course\_leader% | player with best time on current course |
+|%parkour\_current\_course\_timer% | elapsed time on current course (Parkour v5.0+) |
+|%parkour\_course\_count% | number of parkour courses on server |
+|%parkour\_player\_count% | number of players currently playing parkour |
+|%parkour\_version% | version of Parkour currently on server |
+|%parkour\_topten\_<course>\_<position>% | leaderboard position in top ten (position=1-10) |
+|%parkour\_toptenxcc\_<course>\_<position>% | top ten positions with colour codes |
 
-
+<br><br>
 ###Updated by steve4744 - 31/08/2018
 
