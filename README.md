@@ -6,16 +6,16 @@ Required versions for Parkour Expansion 1.0.8:<br>
 [Parkour 4.8+](https://dev.bukkit.org/projects/parkour?gameCategorySlug=bukkit-plugins&projectID=42615 "A5H73Y's Parkour")<br>
 [PlaceholderAPI 2.9.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI")
 
-##Download
+## Download
 
 The latest version can be [downloaded from Spigot](https://www.spigotmc.org/resources/parkour-expansion.41874/ "Parkour Expansion"), or <br>
 can now also be downloaded directly in-game using command _/papi ecloud download Parkour_.
 
-##Installation
+## Installation
 
 To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeholderapi/expansions_ folder and run _/papi reload_.
 
-##Current list of Parkour placeholders
+## Current list of Parkour placeholders
 
 | Placeholder                           | Description                                      |
 |---------------------------------------|--------------------------------------------------|
@@ -24,9 +24,9 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 |%parkour\_level% | player's Parkour level |
 |%parkour\_rank% | player's Parkour rank |
 |%parkour\_parkoins% | number of Parkoins player has won |
-|%parkour\_course\_record\_<course>% | best time set for course |
-|%parkour\_personal\_best\_<course>% | player's personal best time for course |
-|%parkour\_leader\_<course>% | player with best time for course |
+|%parkour\_course\_record\_&lt;course&gt;% | best time set for course |
+|%parkour\_personal\_best\_&lt;course&gt;% | player's personal best time for course |
+|%parkour\_leader\_&lt;course&gt;% | player with best time for course |
 |%parkour\_current\_course% | course currently being played |
 |%parkour\_current\_course\_record% | best time for current course |
 |%parkour\_current\_personal\_best% | player's best time on current course |
@@ -35,9 +35,9 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 |%parkour\_course\_count% | number of parkour courses on server |
 |%parkour\_player\_count% | number of players currently playing parkour |
 |%parkour\_version% | version of Parkour currently on server |
-|%parkour\_topten\_<course>\_<position>% | leaderboard position in top ten (position=1-10) |
-|%parkour\_toptenxcc\_<course>\_<position>% | top ten positions with colour codes |
+|%parkour\_topten\_&lt;course&gt;\_&lt;position&gt;% | leaderboard position in top ten (position=1-10) |
+|%parkour\_toptenxcc\_&lt;course&gt;\_&lt;position&gt;% | top ten positions with colour codes |
 
-<br><br>
-###Updated by steve4744 - 31/08/2018
+
+### Updated by steve4744 - 31/08/2018
 
