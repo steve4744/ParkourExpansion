@@ -60,7 +60,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.0.8";
+        return "1.0.9";
     }
 
     /**
