@@ -6,12 +6,12 @@ import org.bukkit.entity.Player;
 
 import me.A5H73Y.Parkour.Parkour;
 import me.A5H73Y.Parkour.Course.Course;
+import me.A5H73Y.Parkour.Course.CourseInfo;
 import me.A5H73Y.Parkour.Course.CourseMethods;
 import me.A5H73Y.Parkour.Other.TimeObject;
 import me.A5H73Y.Parkour.Player.PlayerInfo;
 import me.A5H73Y.Parkour.Player.PlayerMethods;
 import me.A5H73Y.Parkour.Utilities.DatabaseMethods;
-import me.A5H73Y.Parkour.Utilities.Static;
 import me.A5H73Y.Parkour.Utilities.Utils;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
@@ -95,7 +95,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return String.valueOf(PlayerMethods.getPlaying().size());
         	
         } else if (identifier.equals("course_count")) {
-        	return String.valueOf(Static.getCourses().size());
+        	return String.valueOf(CourseInfo.getAllCourses().size());
         	
         } else if (identifier.equals("current_course")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
