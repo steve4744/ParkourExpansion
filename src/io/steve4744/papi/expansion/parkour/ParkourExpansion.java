@@ -60,7 +60,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.0.9";
+        return "1.1";
     }
 
     /**
@@ -80,10 +80,10 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastPlayed");
         	
         } else if (identifier.equals("level")) {
-            return String.valueOf(Parkour.getParkourConfig().getUsersData().getInt("PlayerInfo." + p.getName() +".Level"));
+            return String.valueOf(PlayerInfo.getParkourLevel(p));
             
         } else if (identifier.equals("rank")) {
-            return Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".Rank");
+            return PlayerInfo.getRank(p);
         
         } else if (identifier.equals("parkoins")) {
         	return String.valueOf(PlayerInfo.getParkoins(p));

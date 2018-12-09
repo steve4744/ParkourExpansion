@@ -2,7 +2,7 @@
 
 This is a Minecraft placeholder expansion pack for A5H73Y's Parkour plugin and is used in conjunction with PlaceholderAPI.
 
-Required versions for Parkour Expansion 1.0.9:<br>
+Required versions for Parkour Expansion 1.1:<br>
 [Parkour 5.0+](https://dev.bukkit.org/projects/parkour?gameCategorySlug=bukkit-plugins&projectID=42615 "A5H73Y's Parkour")<br>
 [PlaceholderAPI 2.9.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI")
 
@@ -39,5 +39,5 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 |%parkour\_toptenxcc\_&lt;course&gt;\_&lt;position&gt;% | top ten positions with colour codes |
 
 
-### Updated by steve4744 - 04 Oct 2018
+### Updated by steve4744 - 09 Dec 2018
 
