@@ -60,7 +60,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.1";
+        return "1.2";
     }
 
     /**
@@ -74,16 +74,19 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return "";
         }
     	if (identifier.equals("last_completed")) {
-        	return Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastCompleted");
+        	String course =  Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastCompleted");
+        	return course != null ? course : "";
         	
         } else if (identifier.equals("last_played")) {
-        	return Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastPlayed");
+        	String course = Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastPlayed");
+        	return course != null ? course : "";
         	
         } else if (identifier.equals("level")) {
             return String.valueOf(PlayerInfo.getParkourLevel(p));
             
         } else if (identifier.equals("rank")) {
-            return PlayerInfo.getRank(p);
+            String rank = PlayerInfo.getRank(p);
+            return rank != null ? rank : "";
         
         } else if (identifier.equals("parkoins")) {
         	return String.valueOf(PlayerInfo.getParkoins(p));
@@ -99,7 +102,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	
         } else if (identifier.equals("current_course")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
-        	return course != null ? course.getName() : null;
+        	return course != null ? course.getName() : "";
         
         } else if (identifier.equals("current_course_record")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
@@ -110,7 +113,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	}
             	return Utils.displayCurrentTime(time.get(0).getTime());
         	}
-        	return null;
+        	return "";
         
         } else if (identifier.startsWith("course_record")) {
         	String[] temp = identifier.split("_");          
@@ -151,7 +154,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	}
             	return Utils.displayCurrentTime(time.get(0).getTime());
         	}
-        	return null;
+        	return "";
         
         } else if (identifier.startsWith("leader")) {
         	String[] temp = identifier.split("_");          
@@ -177,13 +180,13 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	}
             	return String.valueOf(time.get(0).getPlayer());
         	}
-        	return null;
+        	return "";
         	
         } else if (identifier.equals("current_course_timer")) {
         	if (PlayerMethods.getParkourSession(p.getName()) != null) {
         		return PlayerMethods.getParkourSession(p.getName()).getLiveTime();
         	}
-        	return null;
+        	return "";
         	
         } else if (identifier.startsWith("topten")) {
         	String[] temp = identifier.split("_");          
