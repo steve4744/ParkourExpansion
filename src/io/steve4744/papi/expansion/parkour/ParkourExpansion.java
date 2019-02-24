@@ -60,7 +60,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.2";
+        return "1.3";
     }
 
     /**
@@ -76,34 +76,45 @@ public class ParkourExpansion extends PlaceholderExpansion {
     	if (identifier.equals("last_completed")) {
         	String course =  Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastCompleted");
         	return course != null ? course : "";
-        	
+	
         } else if (identifier.equals("last_played")) {
         	String course = Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastPlayed");
         	return course != null ? course : "";
-        	
+	
         } else if (identifier.equals("level")) {
             return String.valueOf(PlayerInfo.getParkourLevel(p));
-            
+   
         } else if (identifier.equals("rank")) {
             String rank = PlayerInfo.getRank(p);
             return rank != null ? rank : "";
-        
+
         } else if (identifier.equals("parkoins")) {
         	return String.valueOf(PlayerInfo.getParkoins(p));
-        	
+	
         } else if (identifier.equals("version")) {
         	return String.valueOf(Parkour.getPlugin().getDescription().getVersion());
-        	
+	
         } else if (identifier.equals("player_count")) {
         	return String.valueOf(PlayerMethods.getPlaying().size());
-        	
+	
         } else if (identifier.equals("course_count")) {
         	return String.valueOf(CourseInfo.getAllCourses().size());
-        	
+
         } else if (identifier.equals("current_course")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	return course != null ? course.getName() : "";
-        
+
+        } else if (identifier.equals("current_course_record_deaths")) {
+        	Course course = CourseMethods.findByPlayer(p.getName());
+        	if (course != null) {
+        		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
+            	if (time.size() == 0) {
+            		return "No time recorded";
+            	}
+            	return String.valueOf(time.get(0).getDeaths());
+        	}
+        	return "";
+
         } else if (identifier.equals("current_course_record")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
@@ -114,7 +125,22 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	return Utils.displayCurrentTime(time.get(0).getTime());
         	}
         	return "";
-        
+
+        } else if (identifier.startsWith("course_record_deaths")) {
+        	String[] temp = identifier.split("_");          
+            if (temp.length != 4) {
+              return null;
+            }
+            String courseName = temp[3];
+            if (!CourseMethods.exist(courseName)) {
+    			return null;
+            }
+        	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
+        	if (time.size() == 0) {
+        		return "No time recorded";
+        	}
+        	return String.valueOf(time.get(0).getDeaths());
+
         } else if (identifier.startsWith("course_record")) {
         	String[] temp = identifier.split("_");          
             if (temp.length != 3) {
@@ -129,7 +155,22 @@ public class ParkourExpansion extends PlaceholderExpansion {
         		return "No time recorded";
         	}
         	return Utils.displayCurrentTime(time.get(0).getTime());
-        	
+
+        } else if (identifier.startsWith("personal_best_deaths")) {
+        	String[] temp = identifier.split("_");          
+            if (temp.length != 4) {
+              return null;
+            }
+            String courseName = temp[3];
+            if (!CourseMethods.exist(courseName)) {
+    			return null;
+            }
+        	List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),courseName, 1);
+        	if (time.size() == 0) {
+        		return "No time recorded";
+        	}
+        	return String.valueOf(time.get(0).getDeaths());
+
         } else if (identifier.startsWith("personal_best")) {
         	String[] temp = identifier.split("_");          
             if (temp.length != 3) {
@@ -144,7 +185,18 @@ public class ParkourExpansion extends PlaceholderExpansion {
         		return "No time recorded";
         	}
         	return Utils.displayCurrentTime(time.get(0).getTime());
-        	
+
+        } else if (identifier.equals("current_personal_best_deaths")) {
+        	Course course = CourseMethods.findByPlayer(p.getName());
+        	if (course != null) {
+        		List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),course.getName(), 1);
+            	if (time.size() == 0) {
+            		return "No time recorded";
+            	}
+            	return String.valueOf(time.get(0).getDeaths());
+        	}
+        	return "";
+
         } else if (identifier.equals("current_personal_best")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
