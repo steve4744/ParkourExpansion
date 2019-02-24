@@ -25,11 +25,15 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 |%parkour\_rank% | player's Parkour rank |
 |%parkour\_parkoins% | number of Parkoins player has won |
 |%parkour\_course\_record\_&lt;course&gt;% | best time set for course |
+|%parkour\_course\_record\_deaths\_&lt;course&gt;% | death count of best time set for course |
 |%parkour\_personal\_best\_&lt;course&gt;% | player's personal best time for course |
+|%parkour\_personal\_best\_deaths\_&lt;course&gt;% | player's death count during personal best time for course |
 |%parkour\_leader\_&lt;course&gt;% | player with best time for course |
 |%parkour\_current\_course% | course currently being played |
 |%parkour\_current\_course\_record% | best time for current course |
+|%parkour\_current\_course\_record\_deaths% | death count of best time for current course |
 |%parkour\_current\_personal\_best% | player's best time on current course |
+|%parkour\_current\_personal\_best\_deaths% | player's death count of best time on current course |
 |%parkour\_current\_course\_leader% | player with best time on current course |
 |%parkour\_current\_course\_timer% | elapsed time on current course (Parkour v5.0+) |
 |%parkour\_course\_count% | number of parkour courses on server |
@@ -40,5 +44,5 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 
 <br>
 
-### Updated by steve4744 - 08 Jan 2019
+### Updated by steve4744 - 24 Feb 2019
 
