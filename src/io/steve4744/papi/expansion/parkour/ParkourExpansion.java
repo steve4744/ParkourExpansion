@@ -78,11 +78,11 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return course != null ? course : "";
 
         } else if (identifier.equals("level")) {
-            return String.valueOf(PlayerInfo.getParkourLevel(p));
+        	return String.valueOf(PlayerInfo.getParkourLevel(p));
 
         } else if (identifier.equals("rank")) {
-            String rank = PlayerInfo.getRank(p);
-            return rank != null ? rank : "";
+        	String rank = PlayerInfo.getRank(p);
+        	return rank != null ? rank : "";
 
         } else if (identifier.equals("parkoins")) {
         	return String.valueOf(PlayerInfo.getParkoins(p));
@@ -107,10 +107,10 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
-            	if (time.size() == 0) {
-            		return "No time recorded";
-            	}
-            	return String.valueOf(time.get(0).getDeaths());
+        		if (time.size() == 0) {
+        			return "No time recorded";
+        		}
+        		return String.valueOf(time.get(0).getDeaths());
         	}
         	return "";
 
@@ -118,37 +118,37 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
-            	if (time.size() == 0) {
-            		return "No time recorded";
-            	}
-            	return Utils.displayCurrentTime(time.get(0).getTime());
+        		if (time.size() == 0) {
+        			return "No time recorded";
+        		}
+        		return Utils.displayCurrentTime(time.get(0).getTime());
         	}
         	return "";
 
         } else if (identifier.startsWith("course_record_deaths")) {
         	String[] temp = identifier.split("_");          
-            if (temp.length != 4) {
-              return null;
-            }
+        	if (temp.length != 4) {
+        		return null;
+        	}
             String courseName = temp[3];
             if (!CourseMethods.exist(courseName)) {
     			return null;
             }
-        	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
-        	if (time.size() == 0) {
-        		return "No time recorded";
-        	}
-        	return String.valueOf(time.get(0).getDeaths());
+            List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
+            if (time.size() == 0) {
+            	return "No time recorded";
+            }
+            return String.valueOf(time.get(0).getDeaths());
 
         } else if (identifier.startsWith("course_record")) {
         	String[] temp = identifier.split("_");          
-            if (temp.length != 3) {
-              return null;
-            }
-            String courseName = temp[2];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
+        	if (temp.length != 3) {
+        		return null;
+        	}
+        	String courseName = temp[2];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
         	if (time.size() == 0) {
         		return "No time recorded";
@@ -157,13 +157,13 @@ public class ParkourExpansion extends PlaceholderExpansion {
 
         } else if (identifier.startsWith("personal_best_deaths")) {
         	String[] temp = identifier.split("_");          
-            if (temp.length != 4) {
-              return null;
-            }
-            String courseName = temp[3];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
+        	if (temp.length != 4) {
+        		return null;
+        	}
+        	String courseName = temp[3];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
         	List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),courseName, 1);
         	if (time.size() == 0) {
         		return "No time recorded";
@@ -172,13 +172,13 @@ public class ParkourExpansion extends PlaceholderExpansion {
 
         } else if (identifier.startsWith("personal_best")) {
         	String[] temp = identifier.split("_");          
-            if (temp.length != 3) {
-              return null;
-            }
-            String courseName = temp[2];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
+        	if (temp.length != 3) {
+        		return null;
+        	}
+        	String courseName = temp[2];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
         	List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),courseName, 1);
         	if (time.size() == 0) {
         		return "No time recorded";
@@ -200,22 +200,22 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),course.getName(), 1);
-            	if (time.size() == 0) {
-            		return "No time recorded";
-            	}
-            	return Utils.displayCurrentTime(time.get(0).getTime());
+        		if (time.size() == 0) {
+        			return "No time recorded";
+        		}
+        		return Utils.displayCurrentTime(time.get(0).getTime());
         	}
         	return "";
 
         } else if (identifier.startsWith("leader")) {
         	String[] temp = identifier.split("_");          
-            if (temp.length != 2) {
-              return null;
-            }
-            String courseName = temp[1];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
+        	if (temp.length != 2) {
+        		return null;
+        	}
+        	String courseName = temp[1];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
         	if (time.size() == 0) {
         		return "No time recorded";
@@ -226,10 +226,10 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
-            	if (time.size() == 0) {
-            		return "No time recorded";
-            	}
-            	return String.valueOf(time.get(0).getPlayer());
+        		if (time.size() == 0) {
+        			return "No time recorded";
+        		}
+        		return String.valueOf(time.get(0).getPlayer());
         	}
         	return "";
 
@@ -240,22 +240,22 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return "";
 
         } else if (identifier.startsWith("topten")) {
-        	String[] temp = identifier.split("_");          
-            if (temp.length != 3) {
-              return null;
-            }
-            String courseName = temp[1];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
-            if (!Validation.isInteger(temp[2])) {
-            	return null;
-            }
-            int pos = Integer.parseInt(temp[2]);
-            if (pos < 1 || pos > 10) {
-            	return null;
-            }
-            List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, pos);
+        	String[] temp = identifier.split("_");
+        	if (temp.length != 3) {
+        		return null;
+        	}
+        	String courseName = temp[1];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
+        	if (!Validation.isInteger(temp[2])) {
+        		return null;
+        	}
+        	int pos = Integer.parseInt(temp[2]);
+        	if (pos < 1 || pos > 10) {
+        		return null;
+        	}
+        	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, pos);
         	if (time.size() == 0) {
         		return "No time recorded";
         	} else if (pos > time.size()) {
