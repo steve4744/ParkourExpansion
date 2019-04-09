@@ -9,6 +9,7 @@ import me.A5H73Y.Parkour.Course.Course;
 import me.A5H73Y.Parkour.Course.CourseInfo;
 import me.A5H73Y.Parkour.Course.CourseMethods;
 import me.A5H73Y.Parkour.Other.TimeObject;
+import me.A5H73Y.Parkour.Other.Validation;
 import me.A5H73Y.Parkour.Player.PlayerInfo;
 import me.A5H73Y.Parkour.Player.PlayerMethods;
 import me.A5H73Y.Parkour.Utilities.DatabaseMethods;
@@ -33,7 +34,6 @@ public class ParkourExpansion extends PlaceholderExpansion {
     public String getAuthor() {
         return "steve4744";
     }
-
     /**
      * The placeholder identifier should go here
      * This is what tells PlaceholderAPI to call our onPlaceholderRequest method to obtain
@@ -44,7 +44,6 @@ public class ParkourExpansion extends PlaceholderExpansion {
     public String getIdentifier() {
         return "parkour";
     }
-
     /**
      * if an expansion requires another plugin as a dependency, the proper name of the dependency should
      * go here. Set this to null if your placeholders do not require another plugin be installed on the server
@@ -54,49 +53,49 @@ public class ParkourExpansion extends PlaceholderExpansion {
     public String getPlugin() {
         return "Parkour";
     }
-
     /**
      * This is the version of this expansion
      */
     @Override
     public String getVersion() {
-        return "1.3";
+        return "1.4";
     }
-
     /**
      * This is the method called when a placeholder with our identifier is found and needs a value
      * We specify the value identifier in this method
      */
     @Override
     public String onPlaceholderRequest(Player p, String identifier) {
-
         if (p == null) {
         	return "";
         }
     	if (identifier.equals("last_completed")) {
         	String course =  Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastCompleted");
         	return course != null ? course : "";
-	
+
         } else if (identifier.equals("last_played")) {
         	String course = Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() +".LastPlayed");
         	return course != null ? course : "";
-	
+
         } else if (identifier.equals("level")) {
             return String.valueOf(PlayerInfo.getParkourLevel(p));
-   
+
         } else if (identifier.equals("rank")) {
             String rank = PlayerInfo.getRank(p);
             return rank != null ? rank : "";
 
         } else if (identifier.equals("parkoins")) {
         	return String.valueOf(PlayerInfo.getParkoins(p));
-	
+
         } else if (identifier.equals("version")) {
         	return String.valueOf(Parkour.getPlugin().getDescription().getVersion());
-	
+
         } else if (identifier.equals("player_count")) {
         	return String.valueOf(PlayerMethods.getPlaying().size());
-	
+
+        } else if(identifier.equals("courses_completed")) {
+        	return String.valueOf(PlayerInfo.getNumberOfCoursesCompleted(p));
+
         } else if (identifier.equals("course_count")) {
         	return String.valueOf(CourseInfo.getAllCourses().size());
 
@@ -207,7 +206,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	return Utils.displayCurrentTime(time.get(0).getTime());
         	}
         	return "";
-        
+
         } else if (identifier.startsWith("leader")) {
         	String[] temp = identifier.split("_");          
             if (temp.length != 2) {
@@ -222,7 +221,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         		return "No time recorded";
         	}
         	return String.valueOf(time.get(0).getPlayer());
-        
+
         } else if (identifier.equals("current_course_leader")) {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
@@ -233,13 +232,13 @@ public class ParkourExpansion extends PlaceholderExpansion {
             	return String.valueOf(time.get(0).getPlayer());
         	}
         	return "";
-        	
+
         } else if (identifier.equals("current_course_timer")) {
         	if (PlayerMethods.getParkourSession(p.getName()) != null) {
         		return PlayerMethods.getParkourSession(p.getName()).getLiveTime();
         	}
         	return "";
-        	
+
         } else if (identifier.startsWith("topten")) {
         	String[] temp = identifier.split("_");          
             if (temp.length != 3) {
@@ -249,7 +248,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
             if (!CourseMethods.exist(courseName)) {
     			return null;
             }
-            if (!Utils.isNumber(temp[2])) {
+            if (!Validation.isInteger(temp[2])) {
             	return null;
             }
             int pos = Integer.parseInt(temp[2]);
