@@ -130,15 +130,15 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (temp.length != 4) {
         		return null;
         	}
-            String courseName = temp[3];
-            if (!CourseMethods.exist(courseName)) {
-    			return null;
-            }
-            List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
-            if (time.size() == 0) {
-            	return "No time recorded";
-            }
-            return String.valueOf(time.get(0).getDeaths());
+        	String courseName = temp[3];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
+        	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
+        	if (time.size() == 0) {
+        		return "No time recorded";
+        	}
+        	return String.valueOf(time.get(0).getDeaths());
 
         } else if (identifier.startsWith("course_record")) {
         	String[] temp = identifier.split("_");          
@@ -189,10 +189,10 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	Course course = CourseMethods.findByPlayer(p.getName());
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),course.getName(), 1);
-            	if (time.size() == 0) {
-            		return "No time recorded";
-            	}
-            	return String.valueOf(time.get(0).getDeaths());
+        		if (time.size() == 0) {
+        			return "No time recorded";
+        		}
+        		return String.valueOf(time.get(0).getDeaths());
         	}
         	return "";
 
@@ -261,7 +261,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	} else if (pos > time.size()) {
         		return " ";		
         	}
-        	if (identifier.startsWith("toptenx")){
+        	if (identifier.startsWith("toptenx")) {
         		String nCol = "&f";
         		String tCol = "&f";
         		//check if colour codes specified
