@@ -58,7 +58,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.4";
+        return "1.5";
     }
     /**
      * This is the method called when a placeholder with our identifier is found and needs a value
@@ -272,7 +272,17 @@ public class ParkourExpansion extends PlaceholderExpansion {
         		return String.valueOf(nCol + time.get(pos - 1).getPlayer() + "&7 - " + tCol + Utils.displayCurrentTime(time.get(pos - 1).getTime()));
         	}
         	return String.valueOf("&f" + pos + ") &b" +time.get(pos - 1).getPlayer() + "&f in &a" + Utils.displayCurrentTime(time.get(pos - 1).getTime()) + "&f");
-        }    
+
+        } else if (identifier.startsWith("course_prize_delay")) {
+            String[] temp = identifier.split("_");
+            if (temp.length != 4) {
+                return null;
+            }
+            if (!CourseInfo.hasRewardDelay(temp[3]) || Utils.hasPrizeCooldownDurationPassed(p, temp[3], false)) {
+                return "0";
+            }
+            return Utils.getTimeRemaining(p, temp[3]);
+        }
         return null;
     }
 }
