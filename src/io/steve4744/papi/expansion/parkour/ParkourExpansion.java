@@ -10,6 +10,7 @@ import me.A5H73Y.Parkour.Course.CourseInfo;
 import me.A5H73Y.Parkour.Course.CourseMethods;
 import me.A5H73Y.Parkour.Other.TimeObject;
 import me.A5H73Y.Parkour.Other.Validation;
+import me.A5H73Y.Parkour.Player.ParkourSession;
 import me.A5H73Y.Parkour.Player.PlayerInfo;
 import me.A5H73Y.Parkour.Player.PlayerMethods;
 import me.A5H73Y.Parkour.Utilities.DatabaseMethods;
@@ -58,7 +59,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.5";
+        return "1.6";
     }
     /**
      * This is the method called when a placeholder with our identifier is found and needs a value
@@ -234,10 +235,12 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	return "";
 
         } else if (identifier.equals("current_course_timer")) {
-        	if (PlayerMethods.getParkourSession(p.getName()) != null) {
-        		return PlayerMethods.getParkourSession(p.getName()).getLiveTime();
-        	}
-        	return "";
+            ParkourSession session = PlayerMethods.getParkourSession(p.getName());
+            return session == null ? "" : session.getLiveTime();
+
+        } else if (identifier.equals("current_course_deaths")) {
+            ParkourSession session = PlayerMethods.getParkourSession(p.getName());
+            return session == null ? "" : String.valueOf(session.getDeaths());
 
         } else if (identifier.startsWith("topten")) {
         	String[] temp = identifier.split("_");
