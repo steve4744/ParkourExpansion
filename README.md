@@ -2,9 +2,9 @@
 
 This is a Minecraft placeholder expansion pack for A5H73Y's Parkour plugin and is used in conjunction with PlaceholderAPI.
 
-Required versions for Parkour Expansion 1.6:<br>
-[Parkour 5.2+](https://dev.bukkit.org/projects/parkour?gameCategorySlug=bukkit-plugins&projectID=42615 "A5H73Y's Parkour")<br>
-[PlaceholderAPI 2.9.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI")
+Required versions for Parkour Expansion 1.7:<br>
+[Parkour 5.3](https://dev.bukkit.org/projects/parkour?gameCategorySlug=bukkit-plugins&projectID=42615 "A5H73Y's Parkour")<br>
+[PlaceholderAPI 2.10.2+](https://www.spigotmc.org/resources/placeholderapi.6245/ "PlaceholderAPI")
 
 ## Download
 
@@ -38,6 +38,7 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 |%parkour\_current\_course\_timer% | elapsed time on current course (Parkour v5.0+) |
 |%parkour\_current\_course\_deaths% | number of deaths on current course |
 |%parkour\_course\_count% | number of parkour courses on server |
+|%parkour\_course\_global\_completions\_&lt;course&gt;% | total number of times course has been completed |
 |%parkour\_courses\_completed% | number of unique parkour courses completed by player |
 |%parkour\_course\_prize\_delay\_&lt;course&gt;% | player's remaining cooldown period for course |
 |%parkour\_player\_count% | number of players currently playing parkour |
@@ -47,5 +48,5 @@ To use this expansion, drop the Expansion-Parkour.jar into your _plugins/placeho
 
 <br>
 
-### Updated by steve4744 - 17 November 2019
+### Updated by steve4744 - 13 February 2020
 
