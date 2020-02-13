@@ -59,7 +59,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
      */
     @Override
     public String getVersion() {
-        return "1.6";
+        return "1.7";
     }
     /**
      * This is the method called when a placeholder with our identifier is found and needs a value
@@ -285,6 +285,18 @@ public class ParkourExpansion extends PlaceholderExpansion {
                 return "0";
             }
             return Utils.getTimeRemaining(p, temp[3]);
+
+        } else if (identifier.startsWith("course_global_completions")) {
+            String[] temp = identifier.split("_");
+            if (temp.length != 4) {
+                return null;
+            }
+            String courseName = temp[3];
+        	if (!CourseMethods.exist(courseName)) {
+        		return null;
+        	}
+            return String.valueOf(Parkour.getParkourConfig().getCourseData().getInt(courseName + ".Completed", 0));
+            
         }
         return null;
     }
