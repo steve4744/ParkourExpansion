@@ -29,8 +29,18 @@ public class ParkourExpansion extends PlaceholderExpansion {
         return true;
     }
     /**
-     * The name of the person who created this expansion should go here
+     * Config options
      */
+	@Override
+	public Map<String, Object> getDefaults() {
+		Map<String, Object> defaults = new HashMap<String, Object>();
+		defaults.put("lang.no-time-recorded", "No time recorded");
+		defaults.put("lang.no-prize-delay", "0");
+		return defaults;
+	}
+	/**
+	 * The name of the person who created this expansion should go here
+	 */
     @Override
     public String getAuthor() {
         return "steve4744";
@@ -109,7 +119,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
         		if (time.size() == 0) {
-        			return "No time recorded";
+        			return getString("lang.no-time-recorded");
         		}
         		return String.valueOf(time.get(0).getDeaths());
         	}
@@ -120,7 +130,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
         		if (time.size() == 0) {
-        			return "No time recorded";
+        			return getString("lang.no-time-recorded");
         		}
         		return Utils.displayCurrentTime(time.get(0).getTime());
         	}
@@ -137,7 +147,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	}
         	return String.valueOf(time.get(0).getDeaths());
 
@@ -152,7 +162,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	}
         	return Utils.displayCurrentTime(time.get(0).getTime());
 
@@ -167,7 +177,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),courseName, 1);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	}
         	return String.valueOf(time.get(0).getDeaths());
 
@@ -182,7 +192,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),courseName, 1);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	}
         	return Utils.displayCurrentTime(time.get(0).getTime());
 
@@ -191,7 +201,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),course.getName(), 1);
         		if (time.size() == 0) {
-        			return "No time recorded";
+        			return getString("lang.no-time-recorded");
         		}
         		return String.valueOf(time.get(0).getDeaths());
         	}
@@ -202,7 +212,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopPlayerCourseResults(p.getName(),course.getName(), 1);
         		if (time.size() == 0) {
-        			return "No time recorded";
+        			return getString("lang.no-time-recorded");
         		}
         		return Utils.displayCurrentTime(time.get(0).getTime());
         	}
@@ -219,7 +229,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, 1);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	}
         	return String.valueOf(time.get(0).getPlayer());
 
@@ -228,7 +238,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	if (course != null) {
         		List<TimeObject> time = DatabaseMethods.getTopCourseResults(course.getName(), 1);
         		if (time.size() == 0) {
-        			return "No time recorded";
+        			return getString("lang.no-time-recorded");
         		}
         		return String.valueOf(time.get(0).getPlayer());
         	}
@@ -260,7 +270,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
         	}
         	List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, pos);
         	if (time.size() == 0) {
-        		return "No time recorded";
+        		return getString("lang.no-time-recorded");
         	} else if (pos > time.size()) {
         		return " ";		
         	}
@@ -282,7 +292,7 @@ public class ParkourExpansion extends PlaceholderExpansion {
                 return null;
             }
             if (!CourseInfo.hasRewardDelay(temp[3]) || Utils.hasPrizeCooldownDurationPassed(p, temp[3], false)) {
-                return "0";
+                return getString("lang.no-prize-delay");
             }
             return Utils.getTimeRemaining(p, temp[3]);
 
