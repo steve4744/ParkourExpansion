@@ -65,6 +65,7 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      * if an expansion requires another plugin as a dependency, the proper name of the dependency should
      * go here. Set this to null if your placeholders do not require another plugin be installed on the server
      * for them to work
+     *
      * @deprecated As of PlaceholderAPI 2.10.x
      */
     @Deprecated
