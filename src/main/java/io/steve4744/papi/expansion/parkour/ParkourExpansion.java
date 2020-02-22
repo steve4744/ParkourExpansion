@@ -65,7 +65,9 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      * if an expansion requires another plugin as a dependency, the proper name of the dependency should
      * go here. Set this to null if your placeholders do not require another plugin be installed on the server
      * for them to work
+     * @deprecated As of PlaceholderAPI 2.10.x
      */
+    @Deprecated
     @Override
     public String getPlugin() {
         return "Parkour";
@@ -107,13 +109,13 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
             return String.valueOf(PlayerInfo.getParkoins(p));
 
         } else if (identifier.equals("version")) {
-            return String.valueOf(Parkour.getPlugin().getDescription().getVersion());
+            return Parkour.getPlugin().getDescription().getVersion();
 
         } else if (identifier.equals("player_count")) {
             return String.valueOf(PlayerMethods.getPlaying().size());
 
         } else if (identifier.equals("courses_completed")) {
-            return String.valueOf(PlayerInfo.getNumberOfCoursesCompleted(p));
+            return PlayerInfo.getNumberOfCoursesCompleted(p);
 
         } else if (identifier.equals("course_count")) {
             return String.valueOf(CourseInfo.getAllCourses().size());
@@ -290,9 +292,9 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
                     nCol = "&" + temp[0].substring(7, 8);
                     tCol = "&" + temp[0].substring(8);
                 }
-                return String.valueOf(nCol + time.get(pos - 1).getPlayer() + "&7 - " + tCol + Utils.displayCurrentTime(time.get(pos - 1).getTime()));
+                return nCol + time.get(pos - 1).getPlayer() + "&7 - " + tCol + Utils.displayCurrentTime(time.get(pos - 1).getTime());
             }
-            return String.valueOf("&f" + pos + ") &b" + time.get(pos - 1).getPlayer() + "&f in &a" + Utils.displayCurrentTime(time.get(pos - 1).getTime()) + "&f");
+            return "&f" + pos + ") &b" + time.get(pos - 1).getPlayer() + "&f in &a" + Utils.displayCurrentTime(time.get(pos - 1).getTime()) + "&f";
 
         } else if (identifier.startsWith("course_prize_delay")) {
             String[] temp = identifier.split("_");
