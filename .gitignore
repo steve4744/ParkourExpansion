@@ -1,0 +1,8 @@
+.idea/
+.idea/.name
+.idea/workspace.xml
+.settings
+.classpath
+.project
+target
+.vscode
