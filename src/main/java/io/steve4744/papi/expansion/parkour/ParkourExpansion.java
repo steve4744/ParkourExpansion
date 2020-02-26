@@ -79,7 +79,7 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      */
     @Override
     public String getVersion() {
-        return "1.7";
+        return "1.8";
     }
 
     /**
