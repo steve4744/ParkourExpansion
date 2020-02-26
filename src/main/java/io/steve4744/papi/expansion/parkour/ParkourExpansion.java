@@ -302,10 +302,14 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
             if (temp.length != 4) {
                 return null;
             }
-            if (!CourseInfo.hasRewardDelay(temp[3]) || Utils.hasPrizeCooldownDurationPassed(p, temp[3], false)) {
+            String courseName = temp[3];
+            if (!CourseMethods.exist(courseName)) {
+                return null;
+            }
+            if (!CourseInfo.hasRewardDelay(courseName) || Utils.hasPrizeCooldownDurationPassed(p, courseName, false)) {
                 return getString("lang.no-prize-delay", "0");
             }
-            return Utils.getTimeRemaining(p, temp[3]);
+            return Utils.getTimeRemaining(p, courseName);
 
         } else if (identifier.startsWith("course_global_completions")) {
             String[] temp = identifier.split("_");
