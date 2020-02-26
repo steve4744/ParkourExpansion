@@ -92,11 +92,11 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
             return "";
         }
         if (identifier.equals("last_completed")) {
-            String course = Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() + ".LastCompleted");
+            String course = PlayerInfo.getLastCompletedCourse(p);
             return course != null ? course : "";
 
         } else if (identifier.equals("last_played")) {
-            String course = Parkour.getParkourConfig().getUsersData().getString("PlayerInfo." + p.getName() + ".LastPlayed");
+            String course = PlayerInfo.getLastPlayedCourse(p);
             return course != null ? course : "";
 
         } else if (identifier.equals("level")) {
