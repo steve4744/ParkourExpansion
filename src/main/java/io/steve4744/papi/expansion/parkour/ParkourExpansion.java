@@ -1,4 +1,4 @@
-package io.steve4744.papi.expansion.parkour;
+package main.java.io.steve4744.papi.expansion.parkour;
 
 import me.A5H73Y.Parkour.Course.Course;
 import me.A5H73Y.Parkour.Course.CourseInfo;
