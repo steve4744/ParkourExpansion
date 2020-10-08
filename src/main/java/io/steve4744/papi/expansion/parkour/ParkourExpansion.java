@@ -79,7 +79,7 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      */
     @Override
     public String getVersion() {
-        return "1.8";
+        return "1.9";
     }
 
     /**
@@ -276,7 +276,7 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
                 return null;
             }
             int pos = Integer.parseInt(temp[2]);
-            if (pos < 1 || pos > 10) {
+            if (pos < 1) {
                 return null;
             }
             List<TimeObject> time = DatabaseMethods.getTopCourseResults(courseName, pos);
