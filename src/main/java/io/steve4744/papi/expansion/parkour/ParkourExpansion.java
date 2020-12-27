@@ -13,7 +13,10 @@ import me.A5H73Y.Parkour.Utilities.DatabaseMethods;
 import me.A5H73Y.Parkour.Utilities.Utils;
 import me.clip.placeholderapi.expansion.Configurable;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.Plugin;
 
 import java.util.HashMap;
 import java.util.List;
@@ -28,6 +31,10 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      */
     @Override
     public boolean canRegister() {
+        Plugin Parkour = Bukkit.getServer().getPluginManager().getPlugin("Parkour");
+        if (Parkour != null && Parkour.isEnabled()) {
+            return Parkour.getDescription().getVersion().equalsIgnoreCase("5.3");
+        }
         return true;
     }
 
@@ -79,7 +86,7 @@ public class ParkourExpansion extends PlaceholderExpansion implements Configurab
      */
     @Override
     public String getVersion() {
-        return "1.9";
+        return "2.0";
     }
 
     /**
